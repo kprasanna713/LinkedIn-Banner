@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Banner</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .banner-container {
+            width: 1584px;
+            height: 396px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0A1929 0%, #1C69D4 50%, #2E8BC0 100%);
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+        }
+
+        /* Animated background pattern */
+        .pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(30deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+                linear-gradient(150deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+                linear-gradient(30deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+                linear-gradient(150deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+            animation: movePattern 20s linear infinite;
+        }
+
+        @keyframes movePattern {
+            0% { background-position: 0 0, 0 0, 40px 70px, 40px 70px; }
+            100% { background-position: 80px 140px, 80px 140px, 120px 210px, 120px 210px; }
+        }
+
+        /* Data visualization elements */
+        .data-viz {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-bar {
+            position: absolute;
+            bottom: 30px;
+            width: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px 4px 0 0;
+            backdrop-filter: blur(10px);
+            animation: growBar 2s ease-in-out infinite;
+        }
+
+        .chart-bar:nth-child(1) { left: 15%; height: 80px; animation-delay: 0s; }
+        .chart-bar:nth-child(2) { left: 20%; height: 120px; animation-delay: 0.2s; }
+        .chart-bar:nth-child(3) { left: 25%; height: 100px; animation-delay: 0.4s; }
+        .chart-bar:nth-child(4) { left: 30%; height: 140px; animation-delay: 0.6s; }
+        .chart-bar:nth-child(5) { left: 35%; height: 90px; animation-delay: 0.8s; }
+
+        @keyframes growBar {
+            0%, 100% { opacity: 0.5; transform: scaleY(1); }
+            50% { opacity: 0.8; transform: scaleY(1.1); }
+        }
+
+        /* Floating data points */
+        .data-point {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .data-point:nth-child(6) { top: 20%; right: 15%; animation-delay: 0s; }
+        .data-point:nth-child(7) { top: 40%; right: 25%; animation-delay: 2s; }
+        .data-point:nth-child(8) { top: 60%; right: 18%; animation-delay: 4s; }
+        .data-point:nth-child(9) { top: 30%; right: 35%; animation-delay: 1s; }
+        .data-point:nth-child(10) { top: 50%; right: 30%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.4; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+        }
+
+        /* Main content */
+        .content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 80px;
+        }
+
+        .title {
+            font-size: 72px;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .subtitle {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 20px 0 0 0;
+            font-weight: 400;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 15px 0 0 0;
+            font-weight: 300;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tech icons */
+        .tech-icons {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        /* Download instruction */
+        .instruction {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            font-size: 14px;
+            color: #333;
+        }
+
+        .instruction strong {
+            color: #1C69D4;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container" id="banner">
+        <div class="pattern"></div>
+        
+        <div class="data-viz">
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="data-point"></div>
+            <div class="data-point"></div>
+            <div class="data-point"></div>
+            <div class="data-point"></div>
+            <div class="data-point"></div>
+        </div>
+
+        <div class="content">
+            <h1 class="title">Data Enthusiast</h1>
+            <p class="subtitle">Turning Data into Decisions</p>
+            <p class="tagline">SQL • Python • Power BI • AWS • Machine Learning</p>
+        </div>
+
+        <div class="tech-icons">
+            <div class="tech-icon">📊</div>
+            <div class="tech-icon">💻</div>
+            <div class="tech-icon">🤖</div>
+            <div class="tech-icon">☁️</div>
+        </div>
+    </div>
+
+    <div class="instruction">
+        <strong>To Download:</strong> Right-click on the banner above → "Save image as..." or take a screenshot (Windows: Win+Shift+S, Mac: Cmd+Shift+4)
+    </div>
+
+    <script>
+        // Optional: Add a download button
+        const banner = document.getElementById('banner');
+        
+        // You can take a screenshot of this banner
+        // On Windows: Win + Shift + S
+        // On Mac: Cmd + Shift + 4
+        // Or right-click and "Save image as"
+    </script>
+</body>
+</html>
