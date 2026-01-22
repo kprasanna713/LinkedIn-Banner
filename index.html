@@ -86,80 +86,69 @@ body {
     max-width: 650px;
 }
 
-/* ================= TECH ICON ORBIT ================= */
+/* ================= STATIC TECH GRID ================= */
 
-.tech-orbit {
+.tech-grid {
     position: absolute;
-    right: 140px;
+    right: 120px;
     top: 50%;
-    width: 280px;
-    height: 280px;
     transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px 28px;
     z-index: 10;
 }
 
-.orbit {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    animation: rotateOrbit 26s linear infinite;
-}
-
-@keyframes rotateOrbit {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+/* Rows with centered alignment */
+.row-2,
+.row-3 {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 28px;
 }
 
 .tech-logo {
-    position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 86px;
+    height: 86px;
     background: rgba(255,255,255,0.18);
     backdrop-filter: blur(14px);
-    border-radius: 50%;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tech-logo img {
-    width: 46px;
-    height: 46px;
+    width: 56px;
+    height: 56px;
     object-fit: contain;
 }
 
+/* Premium hover (subtle) */
 .tech-logo:hover {
-    transform: scale(1.2);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 55px rgba(0,0,0,0.6);
 }
-
-/* Positions around the circle */
-.tech-logo:nth-child(1) { top: 0%;   left: 50%; transform: translate(-50%, 0); }
-.tech-logo:nth-child(2) { top: 18%;  left: 85%; transform: translate(-50%, -50%); }
-.tech-logo:nth-child(3) { top: 50%;  left: 100%; transform: translate(-100%, -50%); }
-.tech-logo:nth-child(4) { top: 82%;  left: 85%; transform: translate(-50%, -50%); }
-.tech-logo:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -100%); }
-.tech-logo:nth-child(6) { top: 82%;  left: 15%; transform: translate(-50%, -50%); }
-.tech-logo:nth-child(7) { top: 50%;  left: 0%; transform: translate(0%, -50%); }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1200px) {
-    .tech-orbit {
-        right: 80px;
-        width: 220px;
-        height: 220px;
+    .tech-grid {
+        right: 60px;
     }
 
     .tech-logo {
-        width: 60px;
-        height: 60px;
+        width: 72px;
+        height: 72px;
     }
 
     .tech-logo img {
-        width: 38px;
-        height: 38px;
+        width: 46px;
+        height: 46px;
     }
 }
 </style>
@@ -177,17 +166,40 @@ body {
         <p class="tagline">Turning complex data into decisions that actually drive impact.</p>
     </div>
 
-    <!-- TECH ICON ORBIT -->
-    <div class="tech-orbit">
-        <div class="orbit">
-            <div class="tech-logo"><img src="icons/python.png" alt="Python"></div>
-            <div class="tech-logo"><img src="icons/pandas.png" alt="Pandas"></div>
-            <div class="tech-logo"><img src="icons/sql.png" alt="SQL"></div>
-            <div class="tech-logo"><img src="icons/github.png" alt="GitHub"></div>
-            <div class="tech-logo"><img src="icons/ml.png" alt="Machine Learning"></div>
-            <div class="tech-logo"><img src="icons/powerbi.png" alt="Power BI"></div>
-            <div class="tech-logo"><img src="icons/aws.png" alt="AWS"></div>
+    <!-- STATIC TECH ICON GRID -->
+    <div class="tech-grid">
+
+        <!-- Row 1 -->
+        <div class="tech-logo">
+            <img src="icons/python.png" alt="Python">
         </div>
+        <div class="tech-logo">
+            <img src="icons/pandas.png" alt="Pandas">
+        </div>
+        <div class="tech-logo">
+            <img src="icons/sql.png" alt="SQL">
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row-2">
+            <div class="tech-logo">
+                <img src="icons/powerbi.png" alt="Power BI">
+            </div>
+            <div class="tech-logo">
+                <img src="icons/aws.png" alt="AWS">
+            </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row-3">
+            <div class="tech-logo">
+                <img src="icons/github.png" alt="GitHub">
+            </div>
+            <div class="tech-logo">
+                <img src="icons/ml.png" alt="Machine Learning">
+            </div>
+        </div>
+
     </div>
 
 </div>
