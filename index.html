@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prasanna Kumar Vechha | Data Analytics Portfolio</title>
+<title>Prasanna Kumar | Data Analytics Portfolio</title>
 
 <style>
 * {
@@ -62,7 +62,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 80px;
+    align-items: center;
+    text-align: center;
+    padding: 0 80px;
 }
 
 .title {
@@ -74,44 +76,37 @@ body {
 }
 
 .subtitle {
-    font-size: 32px;
+    font-size: 28px;
     color: rgba(255,255,255,0.9);
-    margin-top: 16px;
+    margin-top: 12px;
+    font-weight: 500;
 }
 
 .tagline {
-    font-size: 20px;
+    font-size: 18px;
     color: rgba(255,255,255,0.75);
-    margin-top: 12px;
-    max-width: 650px;
+    margin-top: 10px;
+    max-width: 700px;
 }
 
-/* ================= STATIC TECH GRID ================= */
+/* ================= TECH GRID - BOTTOM CENTER ================= */
 
 .tech-grid {
     position: absolute;
-    right: 120px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 26px 28px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
     z-index: 10;
-}
-
-/* Rows with centered alignment */
-.row-2,
-.row-3 {
-    grid-column: span 3;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
 }
 
 .tech-logo {
-    width: 86px;
-    height: 86px;
+    width: 100px;
+    height: 100px;
     background: rgba(255,255,255,0.18);
     backdrop-filter: blur(14px);
     border-radius: 18px;
@@ -119,36 +114,80 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 14px 40px rgba(0,0,0,0.45);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    cursor: pointer;
 }
 
 .tech-logo img {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
 }
 
-/* Premium hover (subtle) */
+/* Premium hover */
 .tech-logo:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 55px rgba(0,0,0,0.6);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 20px 55px rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.25);
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1200px) {
-    .tech-grid {
-        right: 60px;
+    .banner-container {
+        width: 100%;
+        height: 500px;
+    }
+
+    .title {
+        font-size: 56px;
+    }
+
+    .subtitle {
+        font-size: 24px;
     }
 
     .tech-logo {
-        width: 72px;
-        height: 72px;
+        width: 90px;
+        height: 90px;
     }
 
     .tech-logo img {
-        width: 46px;
-        height: 46px;
+        width: 58px;
+        height: 58px;
+    }
+
+    .content {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-container {
+        height: 600px;
+    }
+
+    .title {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .tech-grid {
+        bottom: 20px;
+        gap: 15px;
+    }
+
+    .tech-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .tech-logo img {
+        width: 50px;
+        height: 50px;
     }
 }
 </style>
@@ -161,15 +200,13 @@ body {
     <div class="pattern"></div>
 
     <div class="content">
-        <h1 class="title">Prasanna Kumar Vechha</h1>
+        <h1 class="title">Prasanna Kumar</h1>
         <p class="subtitle">Data Analyst · Business Intelligence · Analytics</p>
         <p class="tagline">Turning complex data into decisions that actually drive impact.</p>
     </div>
 
-    <!-- STATIC TECH ICON GRID -->
+    <!-- TECH ICON GRID - BOTTOM CENTER -->
     <div class="tech-grid">
-
-        <!-- Row 1 -->
         <div class="tech-logo">
             <img src="icons/python.png" alt="Python">
         </div>
@@ -179,29 +216,19 @@ body {
         <div class="tech-logo">
             <img src="icons/sql.png" alt="SQL">
         </div>
-
-        <!-- Row 2 -->
-        <div class="row-2">
-            <div class="tech-logo">
-                <img src="icons/powerbi.png" alt="Power BI">
-            </div>
-            <div class="tech-logo">
-                <img src="icons/aws.png" alt="AWS">
-            </div>
+        <div class="tech-logo">
+            <img src="icons/powerbi.png" alt="Power BI">
         </div>
-
-        <!-- Row 3 -->
-        <div class="row-3">
-            <div class="tech-logo">
-                <img src="icons/github.png" alt="GitHub">
-            </div>
-            <div class="tech-logo">
-                <img src="icons/ml.png" alt="Machine Learning">
-            </div>
+        <div class="tech-logo">
+            <img src="icons/aws.png" alt="AWS">
         </div>
-
+        <div class="tech-logo">
+            <img src="icons/github.png" alt="GitHub">
+        </div>
+        <div class="tech-logo">
+            <img src="icons/ml.png" alt="Machine Learning">
+        </div>
     </div>
-    
 
 </div>
 
